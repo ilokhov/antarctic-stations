@@ -14,18 +14,18 @@ export default {
     input: 'src/main.js',
     output: {
         name: 'datavis',
-        file: 'dist/bundle.js',
+        file: 'docs/bundle.js',
         format: 'iife',
         sourcemap: !production && true
     },
     plugins: [
         copy({
-            targets: [{ src: ['src/index.html', 'src/global.css'], dest: 'dist/' }]
+            targets: [{ src: ['src/index.html', 'src/global.css'], dest: 'docs/' }]
         }),
         svelte({
             dev: !production,
             css: css => {
-                css.write('dist/bundle.css');
+                css.write('docs/bundle.css');
             }
         }),
         resolve(),
@@ -33,7 +33,7 @@ export default {
         dsv(),
         !production &&
             serve({
-                contentBase: 'dist/',
+                contentBase: 'docs/',
                 port: 4000
             }),
         !production && livereload(),
