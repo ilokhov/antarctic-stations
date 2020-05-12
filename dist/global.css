@@ -1,0 +1,242 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    line-height: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #222;
+}
+h1 {
+    font-size: 2rem;
+    line-height: 1.35;
+    font-weight: 400;
+    margin: 0 0 1.25rem;
+    letter-spacing: 0.5px;
+}
+@media (min-width: 1100px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+h2 {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    font-weight: 400;
+    margin: 2.5rem 0 0.5rem;
+}
+@media (min-width: 1100px) {
+    h2 {
+        font-size: 1.8rem;
+        margin: 3.5rem 0 0.5rem;
+    }
+}
+p {
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+a {
+    color: #0095dd;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+main {
+    margin: 2rem 0 4rem;
+}
+.col {
+    margin: 0 auto;
+    padding: 0 10px;
+}
+@media (min-width: 1100px) {
+    .col {
+        width: 1060px;
+    }
+}
+#app {
+    margin-bottom: 2rem;
+}
+@media (min-width: 600px) {
+    #app {
+        margin-bottom: 4rem;
+    }
+}
+#map {
+    position: relative;
+    margin: 2rem 0;
+    background: #9fcef9;
+    font-size: 13px;
+}
+.svg-container {
+    overflow: hidden;
+}
+svg {
+    display: block;
+    margin: 0 auto;
+}
+.land {
+    fill: #fdfdfd;
+}
+.ice {
+    fill: #e6e6e6;
+    stroke: #e6e6e6;
+}
+.graticule {
+    fill: none;
+    stroke: #d6d6d6;
+}
+circle {
+    stroke-opacity: 1;
+    fill-opacity: 0.7;
+    opacity: 0;
+    transition: opacity 0.4s linear;
+    pointer-events: none;
+}
+.tooltip-active {
+    fill-opacity: 1;
+}
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+#tooltip {
+    background: #fff;
+    border: 1px solid #222;
+    width: 280px;
+    height: auto;
+    padding: 10px 20px;
+    line-height: 1.5;
+    pointer-events: none;    
+    position: absolute;
+    visibility: hidden;
+    z-index: 1;
+}
+@media (max-width: 599px) {
+    #tooltip {
+        top: 5px !important;
+        left: 5px !important;
+    }
+}
+@media (min-width: 600px) {
+    #tooltip i {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -8px;
+        width: 18px;
+        height: 9px;
+        overflow: hidden;
+    }
+    #tooltip i::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        margin-left: -5px;
+        width: 9px;
+        height: 9px;
+        background: #fff;
+        border-right: 1px solid #222;
+        border-bottom: 1px solid #222;
+        transform: rotate(45deg);
+    }
+    #tooltip.below-circle i {
+        top: -7px;
+    }
+    #tooltip.below-circle i::before {
+        top: 2px;
+        border-right: 1px solid #222;
+        border-bottom: 1px solid #222;
+        transform: rotate(225deg);
+    }
+}
+#tooltip .name {
+    font-size: 14px;
+    font-weight: 700;
+}
+#tooltip .highlight {
+    font-weight: 500;
+}
+#tooltip .notes {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #2a2a2a;
+}
+.tooltip-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+@media (min-width: 600px) {
+    .tooltip-close {
+        display: none;
+    }    
+}
+.info-container {
+    margin: 0 auto;
+    max-width: 1600px;
+    position: relative;
+}
+#key-container {
+    position: relative;
+    top: 1px;
+    padding: 12px 20px;
+    background: #fff;
+}
+@media (min-width: 600px) {
+    #key-container {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        top: auto;
+    }
+}
+#key::after {
+    content: '';
+    display: block;
+    width: calc(100% + 40px);
+    height: 1px;
+    margin: 12px 0 12px -20px;
+}
+@media (min-width: 600px) {
+    #key::after {
+        background: #2a2a2a;
+    }
+}
+#key > div {
+    margin: 7px 0;
+}
+#key > div:first-child {
+    margin: 0 0 7px;
+}
+#key > div:last-child {
+    margin: 7px 0 0;
+}
+#key > div > span {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 4px;
+    border-radius: 50%;
+    position: relative;
+    border: 1px solid;
+}
+.text {
+    max-width: 700px;
+}
+.footer {
+    margin: 4rem 0;
+}
