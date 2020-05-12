@@ -1,6 +1,6 @@
 import copy from 'rollup-plugin-copy';
 import resolve from 'rollup-plugin-node-resolve';
-import buble from 'rollup-plugin-buble';
+import buble from '@rollup/plugin-buble';
 import { terser } from 'rollup-plugin-terser';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
